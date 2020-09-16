@@ -18,8 +18,9 @@ const defaultProps = {
 
 export const ActionCableProvider = ({ url, children }) => {
   const [conn, setConn] = useState(null);
-
+  console.log("provider called");
   useEffect(() => {
+    console.log("url: " + url);
     if (!conn) setConn(createConsumer(url));
 
     return () => conn && conn.disconnect();
